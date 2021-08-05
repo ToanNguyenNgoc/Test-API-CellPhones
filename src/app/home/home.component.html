@@ -1,0 +1,24 @@
+<p>
+  home works!
+</p>
+<ul>
+  <li *ngFor="let item of listCategory">
+    <a [routerLink]="['/detail/' + item.name]">
+      <p>{{item.name}}</p>
+      <img class="img-item" *ngIf="item?.image" src="{{item.image}}" alt="">
+      <ul>
+        <li *ngFor = "let img of item.images">
+          <img class="img-item" src="{{img}}" alt="">
+        </li>
+      </ul>
+      <ul>
+        <li *ngFor="let tskt of item.tskt">
+          {{tskt.name}}: {{tskt.value}}
+        </li>
+      </ul>
+      <p>{{item.special_price | currency:"VND":"symbol"}}</p>
+    </a>
+    
+  </li>
+</ul>
+<router-outlet></router-outlet>
